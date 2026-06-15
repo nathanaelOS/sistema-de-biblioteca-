@@ -1,20 +1,20 @@
 # Sistema de Biblioteca em C++
 
-Esse projeto é a implementação da atividade de POO (Programação Orientada a Objetos), baseada no diagrama de classes e no diagrama de casos de uso do tema "Sistema de Biblioteca".
+Esse projeto é a implementação da atividade de Programação Orientada a Objetos
 
 A ideia geral é simular o funcionamento básico de uma biblioteca: cadastrar livros, cadastrar usuários, fazer empréstimos e devoluções, tudo pelo terminal.
 
 ## Como o código está organizado
 
-Cada classe do diagrama virou um par de arquivos `.h` (header, onde fica a "assinatura" da classe) e `.cpp` (onde fica a implementação de fato). Isso é uma boa prática em C++ pra deixar o código organizado e mais fácil de entender.
+Cada classe do diagrama virou um par de arquivos `.h` (header, onde fica a "assinatura" da classe) e `.cpp.
 
 ### Pessoa (Pessoa.h / Pessoa.cpp)
 
-É a classe "mãe" do sistema. Tem só o básico que toda pessoa tem: `nome` e `cpf`, com seus getters e setters. Ela existe pra ser herdada por outras classes, então sozinha ela não faz muita coisa.
+É a classe mãe do sistema. possue nome e cpf, com seus getters e setters.
 
 ### Usuario (Usuario.h / Usuario.cpp)
 
-Herda de `Pessoa` (ou seja, todo usuário já nasce com nome e cpf de graça) e adiciona a `matricula`. Além disso tem o método `consultarLivros()`, que mostra na tela todos os livros cadastrados, indicando se estão disponíveis ou não.
+Herda de `Pessoa` e adiciona a `matricula`. Além disso tem o método `consultarLivros()`, que mostra na tela todos os livros cadastrados, indicando se estão disponíveis ou não.
 
 ### Bibliotecario (Bibliotecario.h / Bibliotecario.cpp)
 
@@ -38,7 +38,7 @@ Representa cada livro da biblioteca: `isbn`, `titulo`, `autor` e um booleano `di
 
 ### main.cpp
 
-É o "coração" do programa. Aqui ficam os `vector`s que guardam os livros, usuários e empréstimos cadastrados, além do menu interativo que fica em loop até o usuário escolher a opção de saída (0):
+Aqui estão os  `vector`s que guardam os livros, usuários e empréstimos cadastrados, além do menu interativo que fica em loop até o usuário escolher a opção de saída (0):
 
 1. Cadastrar Livro
 2. Cadastrar Usuário
@@ -58,23 +58,9 @@ Cada opção do menu chama os métodos das classes que a gente criou — é basi
 
 ## Como compilar e rodar
 
-No Windows, abra o PowerShell na pasta do projeto e rode:
-
-```
-g++ -Wall -o biblioteca.exe main.cpp Pessoa.cpp Usuario.cpp Bibliotecario.cpp Livro.cpp Emprestimo.cpp
-```
-
-Depois é só executar:
-
-```
+g++ -o biblioteca.exe main.cpp Pessoa.cpp Usuario.cpp Bibliotecario.cpp Livro.cpp Emprestimo.cpp
+ 
 .\biblioteca.exe
-```
-
-Se estiver no Linux/Mac, o comando é parecido, só muda o nome do executável:
-
-```
-g++ -Wall -o biblioteca main.cpp Pessoa.cpp Usuario.cpp Bibliotecario.cpp Livro.cpp Emprestimo.cpp
-./biblioteca
 ```
 
 ## Dica de uso
